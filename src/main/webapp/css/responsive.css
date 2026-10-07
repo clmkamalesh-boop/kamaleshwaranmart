@@ -1,0 +1,67 @@
+/* =====================================================
+   KamaleshwaranMart - Responsive Stylesheet
+   ===================================================== */
+
+/* ===== Breakpoints ===== */
+/* xl: 1200px, lg: 1024px, md: 768px, sm: 640px, xs: 480px */
+
+@media (max-width: 1024px) {
+  .hero-title { font-size: 2.25rem; }
+  .nav-search { max-width: 320px; }
+}
+
+@media (max-width: 768px) {
+  .nav-container { flex-wrap: wrap; gap: 0.75rem; height: auto; padding: 0.75rem 1.5rem; }
+  .nav-search { order: 3; width: 100%; max-width: 100%; }
+  .navbar { height: auto; }
+  .categories-bar { top: auto; }
+
+  .hero-content { flex-direction: column; text-align: center; }
+  .hero-title { font-size: 2rem; }
+  .hero-actions { justify-content: center; }
+  .hero-content > div:last-child { display: none; }
+
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+
+  .footer-content { grid-template-columns: 1fr 1fr; }
+
+  .nav-links { gap: 0.25rem; flex-wrap: wrap; justify-content: flex-end; }
+  .user-menu { flex-wrap: wrap; justify-content: flex-end; }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 1rem; }
+  .hero { padding: 2rem 0; }
+  .hero-title { font-size: 1.75rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .auth-card { padding: 2rem 1.25rem; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
+  .footer-content { grid-template-columns: 1fr; }
+  .role-options { flex-direction: column; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .pdp-layout, .cart-layout, .checkout-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .stat-card { padding: 1rem; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .data-table th, .data-table td { padding: 0.6rem 0.7rem; font-size: 0.82rem; }
+}
+
+/* ===== Utility ===== */
+.text-center { text-align: center; }
+.hidden { display: none !important; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.d-flex { display: flex; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.fw-bold { font-weight: 700; }
+.text-muted { color: var(--gray-500); }
+.text-primary { color: var(--primary); }
+.text-danger { color: var(--danger); }
+.text-success { color: var(--success); }

@@ -1,0 +1,214 @@
+/* =====================================================
+   KamaleshwaranMart - Dashboard Stylesheet
+   ===================================================== */
+
+/* ===== Dashboard Layout (sidebar + main) ===== */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 200;
+  overflow-y: auto;
+}
+.sidebar-admin { background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+
+.sidebar-brand {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.sidebar-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.brand-icon-sm {
+  width: 2rem;
+  height: 2rem;
+  background: rgba(255,255,255,0.15);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.avatar {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #818cf8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+.avatar-admin { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.sidebar-user-name { font-weight: 700; font-size: 0.9rem; color: white; }
+.sidebar-user-role { font-size: 0.75rem; color: rgba(255,255,255,0.55); }
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.625rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.sidebar-link:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  text-decoration: none;
+}
+.sidebar-link.active {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-weight: 700;
+}
+.sidebar-link.text-danger { color: #fca5a5; }
+.sidebar-link.text-danger:hover { background: rgba(239,68,68,0.15); color: #fca5a5; }
+
+/* ===== Dashboard Main ===== */
+.dashboard-main {
+  flex: 1;
+  margin-left: 260px;
+  padding: 2rem;
+  min-height: 100vh;
+  background: var(--gray-50);
+}
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.dashboard-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+/* ===== Stats Grid ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+.stat-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.stat-icon { font-size: 2.25rem; flex-shrink: 0; }
+.stat-value { font-size: 1.65rem; font-weight: 800; color: var(--gray-900); line-height: 1; }
+.stat-label { font-size: 0.8rem; font-weight: 600; color: var(--gray-500); margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ===== Tab System ===== */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ===== Responsive sidebar (mobile) ===== */
+@media (max-width: 768px) {
+  .dashboard-layout { flex-direction: column; }
+  .sidebar { position: relative; width: 100%; bottom: auto; left: auto; top: auto; }
+  .dashboard-main { margin-left: 0; }
+}
+
+/* ===== User Management & Filter Controls ===== */
+.role-filter-btn {
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+  border-radius: 2rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.role-filter-btn:hover {
+  background: var(--gray-100);
+  color: var(--gray-900);
+  border-color: var(--gray-400);
+}
+.role-filter-btn.active {
+  background: var(--primary, #4f46e5);
+  color: white;
+  border-color: var(--primary, #4f46e5);
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.25);
+}
+.user-search-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+.user-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  pointer-events: none;
+  font-size: 0.95rem;
+}
+.user-search-input {
+  width: 100%;
+  padding-left: 2.35rem;
+  font-size: 0.88rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-300);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.user-search-input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
